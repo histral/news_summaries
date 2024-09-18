@@ -17,6 +17,8 @@ try:
 
     response = call_gemini_api(news_list, INSTRUCTIONS_PATH)
 
-    save_summarization_output(response, CATEGORY)
+    save_summarization_output(
+        response=response, category=CATEGORY, news_used=len(news_list)
+    )
 except Exception as e:
     Logger.error(f"FATAL: Error occurred in main execution; {e}")

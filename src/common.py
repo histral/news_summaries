@@ -109,15 +109,16 @@ def get_news_list(category: Category):
         raise
 
 
-def save_summarization_output(response, category: Category):
+def save_summarization_output(response, category: Category, news_used: int):
     try:
         today_date = f"{CURRENT_DATE.day}-{CURRENT_DATE.month}-{CURRENT_DATE.year}"
 
         response_data = f"""
-id: "{category.name}"
+id: "{category.value}"
 date: "{today_date}"
 prompt_token: "{response.usage_metadata.prompt_token_count}"
 response_token: "{response.usage_metadata.candidates_token_count}"
+news_used: {news_used}
 ------
 {response.text}
 """
