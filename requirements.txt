@@ -1,2 +1,2 @@
 git+https://github.com/histral/histral_core.git@master
-google-generativeai=0.8.1
+google-generativeai==0.8.1
