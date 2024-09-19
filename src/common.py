@@ -115,7 +115,7 @@ def save_summarization_output(response, category: Category, news_used: int):
 
         response_data = f"""
 id: "{category.value}"
-date: "{today_date}"
+date: "{CURRENT_TIME_IST.isoformat()}"
 prompt_token: "{response.usage_metadata.prompt_token_count}"
 response_token: "{response.usage_metadata.candidates_token_count}"
 news_used: {news_used}
