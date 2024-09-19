@@ -6,6 +6,9 @@ on:
     # Triggers daily at 8:30 PM IST (15:00 PM UTC)
     - cron: "0 15 * * *" 
 
+permissions:
+  contents: write
+
 jobs:
   scrape-news-for-usa:
     runs-on: ubuntu-latest
@@ -39,13 +42,15 @@ jobs:
 
     - name: Commit and Push Generated File
       run: |
+        TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S IST" --date="5 hours 30 minutes")
+        
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
+
         git add ./summaries/usa/
-        git commit -m "Added summery for USA"
+        git commit -m "Added summary for USA on $TIMESTAMP"
+
         git push origin master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Confirm Completion
       run: |
