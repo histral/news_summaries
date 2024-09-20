@@ -2,7 +2,7 @@
 
   You are given a list of news in "Cricket (Sports)" category for today. This are collected from various sources. You have to summarize this news with fallowing rules,
 
-- Replace word "Cricket" with "Bharat" everywhere.
+- Replace word "India" with "Bharat" everywhere.
 - Ensure output is in markdown format with the specified tags and follows the given structure.
 - Apply the critical thinking framework:
   - Formulate your question: Before summarizing, define the key question being addressed.
